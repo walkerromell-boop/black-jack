@@ -8,15 +8,15 @@ public class BlackJackGameApp {
         Deck deck = new Deck();
         deck.shuffle();
 
-        Hand hand1 = new Hand();
+        Hand hand = new Hand();
         // deal 5 cards
-        for (int I = 0; I < 5; I++) {
+        for (int i = 0; i < 2; i++) {
             // get a card from the deck
             Card card = deck.deal();
             // deal that card to the hand
-            hand1.Deal(card);
+            hand.deal(card);
         }
-        int handValue = hand1.getValue();
+        int handValue = hand.getValue();
         System.out.println("This hand is worth " + handValue);
 
         ArrayList<Player> players = new ArrayList<>();
@@ -37,13 +37,20 @@ public class BlackJackGameApp {
             if (player.isDealer()) continue;
 
             System.out.println("\n--- " + player.getName() + "'s Turn ---");
-            System.out.println("Starting hand value: " + player.getHandValue());
+            System.out.println("Starting hand value: ");
+            for (Card card : player.getHand().getCards()) {
+                System.out.println(" - " + card);  // calls Card.toString() automatically
+            }
+            System.out.println("Hand value: " + player.getHandValue());
 
 
             while (player.getHandValue() < 16) {
                 System.out.println(player.getName() + " hits...");
                 player.dealCard(deck.deal());
                 System.out.println("New value: " + player.getHandValue());
+
+//                Card newCard = player.getHand().getCards().get(player.getHand().getCards().size() - 1);
+//                System.out.println(" - " + newCard);
             }
             System.out.println(player.getName() + " stands with: " + player.getHandValue());
 

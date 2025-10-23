@@ -61,5 +61,13 @@ public class Card {
         isFaceUp = !isFaceUp;
     }
 
+    @Override
+    public String toString() {
+        if (isFaceUp) {
+            return value +" of " +suit;
+        }else {
+            return "Card face down";
+        }
 
+    }
 }

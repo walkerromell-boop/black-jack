@@ -28,7 +28,7 @@ public class Player {
     }
 
     public void dealCard(Card card) {
-        hand.Deal(card);
+        hand.deal(card);
     }
 
     @Override
