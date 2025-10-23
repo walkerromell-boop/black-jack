@@ -49,7 +49,7 @@ public class BlackJackGameApp {
 
         }
         Player dealer = players.get(players.size() - 1);
-        System.out.println("\n--- Dealer's Turn ---");
+        System.out.println("\n---"+dealer.getName()+"'s Turn ---");
 
         while (dealer.getHandValue() < 17) {
             System.out.println("Dealer hits...");
